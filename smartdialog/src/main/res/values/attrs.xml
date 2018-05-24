@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--SmartProgressBar-->
+    <declare-styleable name="SmartProgressBar">
+        <attr name="style" format="enum">
+            <enum name="horizontal" value="1"/>
+            <enum name="circle" value="2"/>
+        </attr>
+        <attr name="foreground" format="reference"/>
+        <attr name="second_foreground" format="reference"/>
+        <attr name="background" format="reference"/>
+        <attr name="circle_startangle" format="integer"/>
+        <attr name="circle_width" format="dimension"/>
+    </declare-styleable>
+
+</resources>

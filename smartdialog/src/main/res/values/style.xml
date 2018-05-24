@@ -1,0 +1,6 @@
+<resources>
+    <style name="anim_view">
+        <item name="android:windowEnterAnimation">@anim/toast_top_in</item>
+        <item name="android:windowExitAnimation">@anim/toast_top_out</item>
+    </style>
+</resources>

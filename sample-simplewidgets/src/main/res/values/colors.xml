@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--自定义键盘的所有颜色值-->
+    <color name="default_keyboard_bg">#999999</color>
+    <color name="default_keyTextColor">#FF000000</color>
+    <color name="default_key_pressed">#eacd78</color>
+    <color name="default_key_normal">#FFFFFFFF</color>
+    <color name="default_keyShadowColor">#FFFFFFFF</color>
+    <color name="default_keyPreviewTextColor">#eacd78</color>
+
+    <color name="color_orange">#ff8111</color>
+</resources>

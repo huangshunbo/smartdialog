@@ -1,0 +1,46 @@
+package com.android.minlib.smartdialog;
+
+import android.app.Dialog;
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.view.WindowManager;
+/**
+ * @author: huangshunbo
+ * @Filename: EmptyDialog
+ * @Description: 空弹框
+ * @Copyright: Copyright (c) 2017 Tuandai Inc. All rights reserved.
+ * @date: 2018/5/17 17:54
+ */
+public class EmptyDialog extends Dialog {
+
+    protected static float WIDTH_SCALE = 0.8f;
+    private Context mContext;
+
+    public EmptyDialog(Context context){
+        super(context,R.style.Theme_AppCompat_Dialog);
+        mContext = context;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+    }
+
+    public void setForceOpen(boolean isForceOpen){
+        if(isForceOpen){
+            setCancelable(false);
+            setCanceledOnTouchOutside(false);
+        }
+    }
+
+    @Override
+    public void show() {
+        super.show();
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        int width = wm.getDefaultDisplay().getWidth();
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.width = (int)(width * WIDTH_SCALE); //设置宽度
+        getWindow().setAttributes(lp);
+    }
+}
