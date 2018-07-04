@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.android.minlib.smartdialog.SimpleTextContent;
 import com.android.minlib.smartdialog.SmartDialog;
 import com.android.minlib.smartdialog.SmartToast;
 import com.android.minlib.smartdialog.ToastUtils;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView mListView;
     private static final String[] strs =
             {
-                    "showEmptyDialog","showSimpleDialog","showThemeDialog","Toast","ProgressBar"
+                    "showEmptyDialog","showSimpleDialog","showThemeDialog","JustContentDialog","Toast","ProgressBar"
 
             };
     @Override
@@ -41,20 +42,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         switch(position){
             case 0:
                 SmartDialog smartDialog1 = SmartDialogFactory.createEmptyDialog(this);
+                SimpleTextContent content1 = new SimpleTextContent("标题","这并不是一个简短的副标题",this);
+                smartDialog1.getContent().addView(content1);
+                smartDialog1.getTvButtonLeft().setText("新增");
                 smartDialog1.show();
                 break;
             case 1:
                 SmartDialog smartDialog2 = SmartDialogFactory.createSimpleDialog(this);
+                SimpleTextContent content2 = new SimpleTextContent("修改标题","这并不是一个简短的副标题",this);
+                smartDialog2.getContent().removeAllViews();
+                smartDialog2.getContent().addView(content2);
+                smartDialog2.show();
                 smartDialog2.show();
                 break;
             case 2:
                 SmartDialog smartDialog3 = SmartDialogFactory.createThemeDialog(this);
+                smartDialog3.getTvButtonLeft().setText("修改");
                 smartDialog3.show();
                 break;
             case 3:
-                showToast();
+                SmartDialog smartDialog4 = SmartDialogFactory.createJustContentDialog(this);
+                smartDialog4.show();
                 break;
             case 4:
+                showToast();
+                break;
+            case 5:
                 startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
 

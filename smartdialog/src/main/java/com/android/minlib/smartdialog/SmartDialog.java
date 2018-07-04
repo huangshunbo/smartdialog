@@ -4,7 +4,9 @@ import android.content.Context;
 import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -18,12 +20,15 @@ public class SmartDialog extends EmptyDialog{
 
     private FrameLayout llRoot;
     private FrameLayout flContent;
+    private LinearLayout llBottom;
     private View vBottomLine;
     private TextView tvButtonLeft;
     private View vLine1;
     private TextView tvButtonMiddle;
     private View vLine2;
     private TextView tvButtonRight;
+
+    private Builder mBuilder;
 
     private static int default_style = R.style.lib_common_dialog_theme;
 
@@ -33,24 +38,45 @@ public class SmartDialog extends EmptyDialog{
 
     private SmartDialog(Builder builder) {
         super(builder.mContext,builder.mDialogTheme);
-        initView(builder);
+        mBuilder = builder;
+
+        initView();
     }
 
-    private void initView(final Builder builder) {
+    @Override
+    public void show() {
+        initData(mBuilder);
+        super.show();
+    }
+
+    private void initView(){
         setContentView(R.layout.dialog_custom);
         llRoot = findViewById(R.id.common_dialog_cus_root);
         flContent = findViewById(R.id.common_dialog_cus_content);
+        llBottom = findViewById(R.id.common_dialog_cus_bottom);
         vBottomLine = findViewById(R.id.common_dialog_cus_bottom_line);
         tvButtonLeft = findViewById(R.id.common_dialog_cus_btn_cancel);
         vLine1 = findViewById(R.id.common_dialog_cus_line1);
         tvButtonMiddle = findViewById(R.id.common_dialog_cus_btn_custom);
         vLine2 = findViewById(R.id.common_dialog_cus_line2);
         tvButtonRight = findViewById(R.id.common_dialog_cus_btn_submit);
+    }
+
+    private void initData(final Builder builder) {
 
         boolean isLeftShow = false,isMiddleShow = false,isRightShow = false;
 
-        if(builder.content != null){
-            flContent.removeAllViews();
+        if(!TextUtils.isEmpty(tvButtonLeft.getText())){
+            mBuilder.buttonLeftTxt = tvButtonLeft.getText().toString();
+        }
+        if(!TextUtils.isEmpty(tvButtonMiddle.getText())){
+            mBuilder.buttonMiddleTxt = tvButtonMiddle.getText().toString();
+        }
+        if(!TextUtils.isEmpty(tvButtonRight.getText())){
+            mBuilder.buttonRightTxt = tvButtonRight.getText().toString();
+        }
+
+        if(builder.content != null && flContent.getChildCount() <= 0){
             flContent.addView(builder.content);
         }
 
@@ -111,9 +137,15 @@ public class SmartDialog extends EmptyDialog{
             });
         }
 
+        llBottom.setVisibility(isLeftShow || isMiddleShow || isRightShow ? View.VISIBLE : View.GONE);
+
         vBottomLine.setVisibility(isLeftShow || isMiddleShow || isRightShow ? View.VISIBLE : View.GONE);
         vLine1.setVisibility((isLeftShow && isMiddleShow)||(isLeftShow && isRightShow) ? View.VISIBLE : View.GONE);
         vLine2.setVisibility(isMiddleShow && isRightShow ? View.VISIBLE : View.GONE);
+    }
+
+    public ViewGroup getContent(){
+        return flContent;
     }
 
     public TextView getTvButtonLeft() {

@@ -11,7 +11,7 @@ import android.view.WindowManager;
  * @Copyright: Copyright (c) 2017 Tuandai Inc. All rights reserved.
  * @date: 2018/5/17 17:54
  */
-public class EmptyDialog extends Dialog {
+class EmptyDialog extends Dialog {
 
     private static float WIDTH_SCALE = 0.8f;
     private Context mContext;

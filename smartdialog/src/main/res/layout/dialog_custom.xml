@@ -24,6 +24,7 @@
             android:background="?attr/lib_dialog_bottom_line" />
 
         <LinearLayout
+            android:id="@+id/common_dialog_cus_bottom"
             android:layout_width="match_parent"
             android:layout_height="?attr/lib_dialog_bottom_heigh"
             android:orientation="horizontal">

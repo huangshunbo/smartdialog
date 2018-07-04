@@ -40,4 +40,13 @@ public class SmartDialogFactory {
                 .build();
         return smartDialog;
     }
+
+    public static SmartDialog createJustContentDialog(Context context){
+        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
+        SmartDialog smartDialog = new SmartDialog.Builder(context)
+                .setButtonAutoDismiss(true)
+                .setContent(content)
+                .build();
+        return smartDialog;
+    }
 }
