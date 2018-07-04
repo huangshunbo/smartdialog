@@ -1,2 +1,1 @@
 include ':sample-simplewidgets',':smartdialog'
-rootProject.name = 'artifact'

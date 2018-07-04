@@ -9,43 +9,35 @@ import com.android.minlib.smartdialog.SmartDialog;
 
 public class SmartDialogFactory {
 
-    public static SmartDialog createDialog(Context context){
-        SimpleTextContent simpleTextContent = new SimpleTextContent("标题","这是一句提示语！",context);
+    public static SmartDialog createEmptyDialog(Context context){
         SmartDialog smartDialog = new SmartDialog.Builder(context)
-                .setLineColor(ContextCompat.getColor(context,R.color.color_orange))
-                .setContent(simpleTextContent)
-                .setBtnCancel("cancel")
-                .setBtnCancelBackground(ContextCompat.getColor(context,R.color.color_shadow))
-                .setBtnCancelTextColor(ContextCompat.getColor(context,R.color.color_gray))
-                .setBtnCancelTextSize(12)
-                .setBtnCancelListener(new SmartDialog.ClickListener() {
-                    @Override
-                    public void onClick(SmartDialog dialog, View view) {
-
-                    }
-                })
-                .setBtnCustom("custom")
-                .setBtnCustomBackground(ContextCompat.getColor(context,R.color.colorAccent))
-                .setBtnCustomTextColor(ContextCompat.getColor(context,R.color.color_black))
-                .setBtnCustomTextSize(22)
-                .setBtnCustomListener(new SmartDialog.ClickListener() {
-                    @Override
-                    public void onClick(SmartDialog dialog, View view) {
-
-                    }
-                })
-                .setBtnSubmit("submit")
-                .setBtnSubmitBackground(ContextCompat.getColor(context,R.color.color_orange))
-                .setBtnSubmitTextColor(ContextCompat.getColor(context,R.color.color_white))
-                .setBtnSubmitTextSize(12)
-                .setBtnSubmitListener(new SmartDialog.ClickListener() {
-                    @Override
-                    public void onClick(SmartDialog dialog, View view) {
-
-                    }
-                })
+                .setButtonAutoDismiss(true)
+                .setButtonRight("右边")
                 .build();
-            return smartDialog;
+        return smartDialog;
+    }
 
+    public static SmartDialog createSimpleDialog(Context context){
+        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
+        SmartDialog smartDialog = new SmartDialog.Builder(context)
+                .setButtonAutoDismiss(true)
+                .setButtonLeft("取消")
+                .setButtonRight("确认")
+                .setContent(content)
+                .build();
+        return smartDialog;
+    }
+
+    public static SmartDialog createThemeDialog(Context context){
+        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
+        SmartDialog smartDialog = new SmartDialog.Builder(context)
+                .setButtonAutoDismiss(true)
+                .setButtonLeft("左边")
+                .setButtonMiddle("中间")
+                .setButtonRight("右边")
+                .setContent(content)
+                .setTheme(R.style.dialog_theme)
+                .build();
+        return smartDialog;
     }
 }

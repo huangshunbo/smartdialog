@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="dialog_theme" parent="lib_common_dialog_theme">
+        <item name="lib_dialog_left_textsize">12dp</item>
+        <item name="lib_dialog_left_textcolor">#333333</item>
+        <item name="lib_dialog_left_background">#00000000</item>
+
+        <item name="lib_dialog_middle_textsize">18dp</item>
+        <item name="lib_dialog_middle_textcolor">#999999</item>
+        <item name="lib_dialog_middle_background">#00000000</item>
+
+        <item name="lib_dialog_right_textsize">22dp</item>
+        <item name="lib_dialog_right_textcolor">#FF4081</item>
+        <item name="lib_dialog_right_background">#00000000</item>
+    </style>
 </resources>

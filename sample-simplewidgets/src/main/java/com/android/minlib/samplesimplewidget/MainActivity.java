@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView mListView;
     private static final String[] strs =
             {
-                    "SmartDialog","Toast","ProgressBar"
+                    "showEmptyDialog","showSimpleDialog","showThemeDialog","Toast","ProgressBar"
 
             };
     @Override
@@ -40,13 +40,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch(position){
             case 0:
-                SmartDialog smartDialog = SmartDialogFactory.createDialog(this);
-                smartDialog.show();
+                SmartDialog smartDialog1 = SmartDialogFactory.createEmptyDialog(this);
+                smartDialog1.show();
                 break;
             case 1:
-                showToast();
+                SmartDialog smartDialog2 = SmartDialogFactory.createSimpleDialog(this);
+                smartDialog2.show();
                 break;
             case 2:
+                SmartDialog smartDialog3 = SmartDialogFactory.createThemeDialog(this);
+                smartDialog3.show();
+                break;
+            case 3:
+                showToast();
+                break;
+            case 4:
                 startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
 

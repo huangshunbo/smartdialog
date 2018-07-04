@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="lib_common_dialog_theme">
+        <attr name="lib_dialog_background" format="color|reference" />
+        <attr name="lib_dialog_bottom_line" format="color|reference" />
+        <attr name="lib_dialog_line1" format="color|reference" />
+        <attr name="lib_dialog_line2" format="color|reference" />
+
+        <attr name="lib_dialog_bottom_heigh" format="dimension"/>
+
+        <attr name="lib_dialog_left_textsize" format="dimension"/>
+        <attr name="lib_dialog_left_textcolor" format="color"/>
+        <attr name="lib_dialog_left_background" format="color|reference"/>
+
+        <attr name="lib_dialog_middle_textsize" format="dimension"/>
+        <attr name="lib_dialog_middle_textcolor" format="color"/>
+        <attr name="lib_dialog_middle_background" format="color|reference"/>
+
+        <attr name="lib_dialog_right_textsize" format="dimension"/>
+        <attr name="lib_dialog_right_textcolor" format="color"/>
+        <attr name="lib_dialog_right_background" format="color|reference"/>
+    </declare-styleable>
+</resources>

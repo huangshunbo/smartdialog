@@ -13,18 +13,17 @@ import android.view.WindowManager;
  */
 public class EmptyDialog extends Dialog {
 
-    protected static float WIDTH_SCALE = 0.8f;
+    private static float WIDTH_SCALE = 0.8f;
     private Context mContext;
 
     public EmptyDialog(Context context){
-        super(context,R.style.Theme_AppCompat_Dialog);
+        super(context,R.style.lib_empty_dialog_theme);
         mContext = context;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+    public EmptyDialog(Context context,int theme){
+        super(context,theme);
+        mContext = context;
     }
 
     public void setForceOpen(boolean isForceOpen){
@@ -32,6 +31,10 @@ public class EmptyDialog extends Dialog {
             setCancelable(false);
             setCanceledOnTouchOutside(false);
         }
+    }
+
+    public static void setWidthScale(float widthScale) {
+        WIDTH_SCALE = widthScale;
     }
 
     @Override

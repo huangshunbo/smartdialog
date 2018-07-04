@@ -1,6 +1,33 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="anim_view">
         <item name="android:windowEnterAnimation">@anim/toast_top_in</item>
         <item name="android:windowExitAnimation">@anim/toast_top_out</item>
+    </style>
+
+    <style name="lib_empty_dialog_theme" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="lib_common_dialog_theme" parent="lib_empty_dialog_theme">
+        <item name="lib_dialog_background">@drawable/common_frame_corner_white</item>
+        <item name="lib_dialog_bottom_line">#999999</item>
+        <item name="lib_dialog_line1">#999999</item>
+        <item name="lib_dialog_line2">#999999</item>
+
+        <item name="lib_dialog_bottom_heigh">45dp</item>
+
+        <item name="lib_dialog_left_textsize">17dp</item>
+        <item name="lib_dialog_left_textcolor">#999999</item>
+        <item name="lib_dialog_left_background">#00000000</item>
+
+        <item name="lib_dialog_middle_textsize">17dp</item>
+        <item name="lib_dialog_middle_textcolor">#999999</item>
+        <item name="lib_dialog_middle_background">#00000000</item>
+
+        <item name="lib_dialog_right_textsize">17dp</item>
+        <item name="lib_dialog_right_textcolor">#999999</item>
+        <item name="lib_dialog_right_background">#00000000</item>
     </style>
 </resources>
