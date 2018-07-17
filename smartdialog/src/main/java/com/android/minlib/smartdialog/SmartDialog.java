@@ -1,10 +1,15 @@
 package com.android.minlib.smartdialog;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +23,6 @@ import android.widget.TextView;
  */
 public class SmartDialog extends EmptyDialog{
 
-    private FrameLayout llRoot;
     private FrameLayout flContent;
     private LinearLayout llBottom;
     private View vBottomLine;
@@ -39,7 +43,6 @@ public class SmartDialog extends EmptyDialog{
     private SmartDialog(Builder builder) {
         super(builder.mContext,builder.mDialogTheme);
         mBuilder = builder;
-
         initView();
     }
 
@@ -51,7 +54,6 @@ public class SmartDialog extends EmptyDialog{
 
     private void initView(){
         setContentView(R.layout.dialog_custom);
-        llRoot = findViewById(R.id.common_dialog_cus_root);
         flContent = findViewById(R.id.common_dialog_cus_content);
         llBottom = findViewById(R.id.common_dialog_cus_bottom);
         vBottomLine = findViewById(R.id.common_dialog_cus_bottom_line);
@@ -76,72 +78,54 @@ public class SmartDialog extends EmptyDialog{
             mBuilder.buttonRightTxt = tvButtonRight.getText().toString();
         }
 
-        if(builder.content != null && flContent.getChildCount() <= 0){
-            flContent.addView(builder.content);
-        }
-
         if (TextUtils.isEmpty(builder.buttonLeftTxt)) {
             tvButtonLeft.setVisibility(View.GONE);
         } else {
             isLeftShow = true;
-            tvButtonLeft.setVisibility(View.VISIBLE);
-            tvButtonLeft.setText(builder.buttonLeftTxt);
-            tvButtonLeft.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(builder.isButtonAutoDismiss){
-                        dismiss();
-                    }
-                    if (builder.leftOnclickListener != null) {
-                        builder.leftOnclickListener.onClick(tvButtonLeft);
-                    }
-                }
-            });
+            setTextViewProperty(tvButtonLeft,builder.isButtonAutoDismiss,builder.buttonLeftTxt,builder.buttonLeftTextColor,builder.buttonLeftBackground,builder.leftOnclickListener);
         }
 
         if (TextUtils.isEmpty(builder.buttonMiddleTxt)) {
             tvButtonMiddle.setVisibility(View.GONE);
         } else {
             isMiddleShow = true;
-            tvButtonMiddle.setVisibility(View.VISIBLE);
-            tvButtonMiddle.setText(builder.buttonMiddleTxt);
-            tvButtonMiddle.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(builder.isButtonAutoDismiss){
-                        dismiss();
-                    }
-                    if (builder.middleOnclickListener != null) {
-                        builder.middleOnclickListener.onClick(tvButtonMiddle);
-                    }
-                }
-            });
+            setTextViewProperty(tvButtonMiddle,builder.isButtonAutoDismiss,builder.buttonMiddleTxt,builder.buttonMiddleTextColor,builder.buttonMiddleBackground,builder.middleOnclickListener);
         }
 
         if (TextUtils.isEmpty(builder.buttonRightTxt)) {
             tvButtonRight.setVisibility(View.GONE);
         } else {
             isRightShow = true;
-            tvButtonRight.setVisibility(View.VISIBLE);
-            tvButtonRight.setText(builder.buttonRightTxt);
-            tvButtonRight.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(builder.isButtonAutoDismiss){
-                        dismiss();
-                    }
-                    if (builder.rightOnclickListener != null) {
-                        builder.rightOnclickListener.onClick(tvButtonRight);
-                    }
-                }
-            });
+            setTextViewProperty(tvButtonRight,builder.isButtonAutoDismiss,builder.buttonRightTxt,builder.buttonRightTextColor,builder.buttonRightBackground,builder.rightOnclickListener);
         }
 
         llBottom.setVisibility(isLeftShow || isMiddleShow || isRightShow ? View.VISIBLE : View.GONE);
-
         vBottomLine.setVisibility(isLeftShow || isMiddleShow || isRightShow ? View.VISIBLE : View.GONE);
         vLine1.setVisibility((isLeftShow && isMiddleShow)||(isLeftShow && isRightShow) ? View.VISIBLE : View.GONE);
         vLine2.setVisibility(isMiddleShow && isRightShow ? View.VISIBLE : View.GONE);
+    }
+
+    @SuppressLint("ResourceType")
+    private void setTextViewProperty(final TextView textView, final boolean isButtonAutoDismiss, String buttonText, @ColorRes int buttonTextColor, Drawable buttonBackground, final View.OnClickListener clickListener){
+        textView.setVisibility(View.VISIBLE);
+        textView.setText(buttonText);
+        if(buttonTextColor > 0){
+            textView.setTextColor(buttonTextColor);
+        }
+        if(buttonBackground != null){
+            textView.setBackground(buttonBackground);
+        }
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isButtonAutoDismiss){
+                    dismiss();
+                }
+                if (clickListener != null) {
+                    clickListener.onClick(textView);
+                }
+            }
+        });
     }
 
     public ViewGroup getContent(){
@@ -173,10 +157,15 @@ public class SmartDialog extends EmptyDialog{
     }
 
     public static final class Builder {
-        private View content;
         private String buttonLeftTxt;
         private String buttonMiddleTxt;
         private String buttonRightTxt;
+        private @ColorRes int buttonLeftTextColor;
+        private @ColorRes int buttonMiddleTextColor;
+        private @ColorRes int buttonRightTextColor;
+        private Drawable buttonLeftBackground;
+        private Drawable buttonMiddleBackground;
+        private Drawable buttonRightBackground;
         private View.OnClickListener leftOnclickListener;
         private View.OnClickListener middleOnclickListener;
         private View.OnClickListener rightOnclickListener;
@@ -187,11 +176,6 @@ public class SmartDialog extends EmptyDialog{
         public Builder(Context context) {
             mContext = context;
             mDialogTheme = default_style;
-        }
-
-        public Builder setContent(View content) {
-            this.content = content;
-            return this;
         }
 
         public Builder setButtonAutoDismiss(boolean buttonAutoDismiss) {
@@ -219,6 +203,36 @@ public class SmartDialog extends EmptyDialog{
             return this;
         }
 
+        public Builder buttonLeftTextColor(int val) {
+            buttonLeftTextColor = val;
+            return this;
+        }
+
+        public Builder buttonMiddleTextColor(int val) {
+            buttonMiddleTextColor = val;
+            return this;
+        }
+
+        public Builder buttonRightTextColor(int val) {
+            buttonRightTextColor = val;
+            return this;
+        }
+
+        public Builder buttonLeftBackground(Drawable val) {
+            buttonLeftBackground = val;
+            return this;
+        }
+
+        public Builder buttonMiddleBackground(Drawable val) {
+            buttonMiddleBackground = val;
+            return this;
+        }
+
+        public Builder buttonRightBackground(Drawable val) {
+            buttonRightBackground = val;
+            return this;
+        }
+
         public Builder setLeftOnclickListener(View.OnClickListener leftOnclickListener) {
             this.leftOnclickListener = leftOnclickListener;
             return this;
@@ -237,5 +251,6 @@ public class SmartDialog extends EmptyDialog{
         public SmartDialog build() {
             return new SmartDialog(this);
         }
+
     }
 }
