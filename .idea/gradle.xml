@@ -8,13 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/reloadtipview" />
             <option value="$PROJECT_DIR$/sample-simplewidgets" />
-            <option value="$PROJECT_DIR$/simplewidgets" />
             <option value="$PROJECT_DIR$/smartdialog" />
-            <option value="$PROJECT_DIR$/smarthttp" />
-            <option value="$PROJECT_DIR$/smartrefreshlayout" />
-            <option value="$PROJECT_DIR$/smarttool" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

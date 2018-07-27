@@ -13,4 +13,23 @@
         <attr name="circle_width" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="lib_dialog_simpletext_content">
+        <attr name="title_textsize" format="dimension"/>
+        <attr name="title_textcolor" format="color"/>
+        <attr name="title_margin_top" format="dimension"/>
+        <attr name="title_margin_bottom" format="dimension"/>
+        <attr name="title_margin_left" format="dimension"/>
+        <attr name="title_margin_right" format="dimension"/>
+
+        <attr name="message_textsize" format="dimension"/>
+        <attr name="message_textcolor" format="color"/>
+        <attr name="message_margin_top" format="dimension"/>
+        <attr name="message_margin_bottom" format="dimension"/>
+        <attr name="message_margin_left" format="dimension"/>
+        <attr name="message_margin_right" format="dimension"/>
+
+        <attr name="line_background" format="reference"/>
+        <attr name="line_margin" format="dimension"/>
+
+    </declare-styleable>
 </resources>

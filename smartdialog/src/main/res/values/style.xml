@@ -30,4 +30,23 @@
         <item name="lib_dialog_right_textcolor">#999999</item>
         <item name="lib_dialog_right_background">#00000000</item>
     </style>
+
+    <style name="lib_dialog_simpletext_content">
+        <item name="title_textsize">22dp</item>
+        <item name="title_textcolor">@color/color_black</item>
+        <item name="title_margin_top">10dp</item>
+        <item name="title_margin_bottom">10dp</item>
+        <item name="title_margin_left">10dp</item>
+        <item name="title_margin_right">10dp</item>
+
+        <item name="message_textsize">22dp</item>
+        <item name="message_textcolor">@color/color_black</item>
+        <item name="message_margin_top">10dp</item>
+        <item name="message_margin_bottom">10dp</item>
+        <item name="message_margin_left">10dp</item>
+        <item name="message_margin_right">10dp</item>
+
+        <item name="line_background">@drawable/lib_dialog_simpletext_line</item>
+        <item name="line_margin">10dp</item>
+    </style>
 </resources>

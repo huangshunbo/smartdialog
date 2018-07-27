@@ -21,7 +21,7 @@ import android.widget.TextView;
  * @Copyright: Copyright (c) 2017 Tuandai Inc. All rights reserved.
  * @date: 2018/3/22 18:14
  */
-public class SmartDialog extends EmptyDialog{
+public class SmartDialog<T extends View> extends EmptyDialog {
 
     private FrameLayout flContent;
     private LinearLayout llBottom;
@@ -65,6 +65,11 @@ public class SmartDialog extends EmptyDialog{
     }
 
     private void initData(final Builder builder) {
+
+        if(builder.contentView != null){
+            flContent.removeAllViews();
+            flContent.addView(builder.contentView);
+        }
 
         boolean isLeftShow = false,isMiddleShow = false,isRightShow = false;
 
@@ -128,8 +133,8 @@ public class SmartDialog extends EmptyDialog{
         });
     }
 
-    public ViewGroup getContent(){
-        return flContent;
+    public T getContentView(){
+        return (T) mBuilder.contentView;
     }
 
     public TextView getTvButtonLeft() {
@@ -156,7 +161,7 @@ public class SmartDialog extends EmptyDialog{
         return vLine2;
     }
 
-    public static final class Builder {
+    public static final class Builder<E extends View> {
         private String buttonLeftTxt;
         private String buttonMiddleTxt;
         private String buttonRightTxt;
@@ -172,10 +177,16 @@ public class SmartDialog extends EmptyDialog{
         private boolean isButtonAutoDismiss = false;
         private Context mContext;
         private @StyleRes int mDialogTheme;
+        private E contentView;
 
         public Builder(Context context) {
             mContext = context;
             mDialogTheme = default_style;
+        }
+
+        public Builder setContentView(E view) {
+            contentView = view;
+            return this;
         }
 
         public Builder setButtonAutoDismiss(boolean buttonAutoDismiss) {
@@ -249,7 +260,7 @@ public class SmartDialog extends EmptyDialog{
         }
 
         public SmartDialog build() {
-            return new SmartDialog(this);
+            return new SmartDialog<E>(this);
         }
 
     }

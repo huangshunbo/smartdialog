@@ -10,42 +10,52 @@ import com.android.minlib.smartdialog.SmartDialog;
 public class SmartDialogFactory {
 
     public static SmartDialog createEmptyDialog(Context context){
+        SimpleTextContent content = new SimpleTextContent.Builder(context)
+                .setMessage("这是一句一句一句话这是一句一句一句话这是一句一句一句话")
+                .build();
         SmartDialog smartDialog = new SmartDialog.Builder(context)
                 .setButtonAutoDismiss(true)
+                .setContentView(content)
                 .setButtonRight("右边")
                 .build();
         return smartDialog;
     }
 
     public static SmartDialog createSimpleDialog(Context context){
-        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
-        SmartDialog smartDialog = new SmartDialog.Builder(context)
-                .setButtonAutoDismiss(true)
-                .setButtonLeft("取消")
-                .setButtonRight("确认")
-                .setContent(content)
+        SimpleTextContent content = new SimpleTextContent.Builder(context)
+                .setTitle("标题")
+                .messageTxtColor(R.color.color_orange)
+                .setMessage("这是一句一句一句话这是一句一句一句话这是一句一句一句话")
+                .build();
+        SmartDialog<SimpleTextContent> smartDialog = new SmartDialog.Builder<SimpleTextContent>(context)
+                .setButtonRight("submit")
+                .setContentView(content)
                 .build();
         return smartDialog;
     }
 
     public static SmartDialog createThemeDialog(Context context){
-        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
-        SmartDialog smartDialog = new SmartDialog.Builder(context)
-                .setButtonAutoDismiss(true)
-                .setButtonLeft("左边")
-                .setButtonMiddle("中间")
-                .setButtonRight("右边")
-                .setContent(content)
-                .setTheme(R.style.dialog_theme)
+        SimpleTextContent content = new SimpleTextContent.Builder(context)
+                .setTitle("标题")
+                .titleTextColor(R.color.color_orange)
+                .setMessage("这是一句一句一句话这是一句一句一句话这是一句一句一句话")
+                .build();
+        SmartDialog<SimpleTextContent> smartDialog = new SmartDialog.Builder<SimpleTextContent>(context)
+                .setButtonRight("submit")
+                .setContentView(content)
                 .build();
         return smartDialog;
     }
 
     public static SmartDialog createJustContentDialog(Context context){
-        SimpleTextContent content = new SimpleTextContent("标题","这并不是一个简短的副标题",context);
-        SmartDialog smartDialog = new SmartDialog.Builder(context)
-                .setButtonAutoDismiss(true)
-                .setContent(content)
+        SimpleTextContent content = new SimpleTextContent.Builder(context)
+                .setTitle("标题")
+                .titleTextColor(R.color.color_orange)
+                .setMessage("这是一句一句一句话这是一句一句一句话这是一句一句一句话")
+                .build();
+        SmartDialog<SimpleTextContent> smartDialog = new SmartDialog.Builder<SimpleTextContent>(context)
+                .setButtonRight("submit")
+                .setContentView(content)
                 .build();
         return smartDialog;
     }

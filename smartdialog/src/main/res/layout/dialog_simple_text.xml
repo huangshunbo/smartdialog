@@ -3,30 +3,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/common_dialog_simple_txt_title"
+        android:id="@+id/lib_dialog_simple_txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         tools:text="提交赎回申请失败"
         android:lines="1"
         android:ellipsize="end"
-        android:textColor="@color/color_black"
-        android:textSize="17dp"/>
-    <TextView
-        android:id="@+id/common_dialog_simple_txt_sub_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        tools:text="原因：呃呃鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅鹅鹅"
-        android:textColor="@color/color_gray"
-        android:textSize="13dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         />
     <View
+        android:id="@+id/lib_dialog_simple_line"
         android:layout_width="match_parent"
-        android:layout_height="30dp"/>
+        android:layout_height="1px"/>
+    <TextView
+        android:id="@+id/lib_dialog_simple_txt_sub_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="原因：呃呃鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅呃呃鹅鹅鹅鹅鹅"
+        />
 </LinearLayout>
