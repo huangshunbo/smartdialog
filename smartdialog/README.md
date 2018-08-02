@@ -36,10 +36,7 @@ SmartDialog
 1. 覆盖全局的style设置，覆盖lib_common_dialog_theme做全局的样式配置
 
 ```Java
-<style name="lib_common_dialog_theme" parent="lib_empty_dialog_theme">
-
-    <item name="android:windowIsTranslucent">true</item>
-    <item name="android:windowBackground">@android:color/transparent</item>
+<style name="lib_common_dialog_theme">
 
     <item name="lib_dialog_background">@drawable/common_frame_corner_white</item>
     <item name="lib_dialog_bottom_line">#999999</item>
