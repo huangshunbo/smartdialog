@@ -1,18 +1,15 @@
 package com.android.minlib.samplesimplewidget;
 
 import android.app.Application;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.android.minlib.smartdialog.SimpleTextContent;
+import com.android.minlib.smartdialog.EmptyDialog;
 import com.android.minlib.smartdialog.SmartDialog;
-import com.android.minlib.smartdialog.SmartToast;
 import com.android.minlib.smartdialog.ToastUtils;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView mListView;
     private static final String[] strs =
             {
-                    "showEmptyDialog","showSimpleDialog","showThemeDialog","JustContentDialog","Toast","ProgressBar"
+                    "showEmptyDialog","showSimpleDialog","showThemeDialog","InputDialog","SimpleInputDialog","Toast","ProgressBar"
 
             };
     @Override
@@ -41,27 +38,36 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch(position){
             case 0:
-                SmartDialog smartDialog1 = SmartDialogFactory.createEmptyDialog(this);
+                SmartDialog smartDialog1 = SmartDialogFactory.createMessageDialog(this);
                 smartDialog1.show();
+                SmartDialog smartDialog11 = SmartDialogFactory.createMessageDialog(this);
+                smartDialog11.show();
                 break;
             case 1:
+                SmartDialog smartDialog22 = SmartDialogFactory.createMessageDialog(this);
+                smartDialog22.show();
                 SmartDialog smartDialog2 = SmartDialogFactory.createSimpleDialog(this);
                 smartDialog2.show();
                 break;
             case 2:
                 SmartDialog smartDialog3 = SmartDialogFactory.createThemeDialog(this);
-                smartDialog3.getTvButtonLeft().setText("修改");
                 smartDialog3.show();
                 break;
             case 3:
-                SmartDialog smartDialog4 = SmartDialogFactory.createJustContentDialog(this);
+                SmartDialog smartDialog4 = SmartDialogFactory.createInputDialog(this);
                 smartDialog4.show();
                 break;
             case 4:
-                showToast();
+                SmartDialog smartDialog5 = SmartDialogFactory.createSimpleInputDialog(this);
+                smartDialog5.show();
                 break;
             case 5:
-                startActivity(new Intent(this,ProgressBarActivity.class));
+                showToast();
+                break;
+            case 6:
+                EmptyDialog dialog = SmartDialogFactory.createProgressDialog(this);
+
+//                startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
 
         }

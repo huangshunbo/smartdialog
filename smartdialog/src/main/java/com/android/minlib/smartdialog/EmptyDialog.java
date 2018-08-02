@@ -2,8 +2,11 @@ package com.android.minlib.smartdialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.view.WindowManager;
+import android.widget.Toast;
+
 /**
  * @author: huangshunbo
  * @Filename: EmptyDialog
@@ -11,7 +14,7 @@ import android.view.WindowManager;
  * @Copyright: Copyright (c) 2017 Tuandai Inc. All rights reserved.
  * @date: 2018/5/17 17:54
  */
-class EmptyDialog extends Dialog {
+public class EmptyDialog extends Dialog {
 
     private static float WIDTH_SCALE = 0.8f;
     private Context mContext;
@@ -33,7 +36,7 @@ class EmptyDialog extends Dialog {
         }
     }
 
-    public static void setWidthScale(float widthScale) {
+    public void setWidthScale(float widthScale) {
         WIDTH_SCALE = widthScale;
     }
 
@@ -46,4 +49,5 @@ class EmptyDialog extends Dialog {
         lp.width = (int)(width * WIDTH_SCALE); //设置宽度
         getWindow().setAttributes(lp);
     }
+
 }

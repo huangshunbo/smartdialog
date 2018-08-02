@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/dialog_input_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="标题"/>
+
+    <View
+        android:id="@+id/dialog_input_content_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <TextView
+        android:id="@+id/dialog_input_content_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="消息"/>
+    <TextView
+        android:id="@+id/dialog_input_content_sub_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="副消息"/>
+    <LinearLayout
+        android:id="@+id/dialog_input_content_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <EditText
+            android:id="@+id/dialog_input_content_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageView
+            android:id="@+id/dialog_input_content_statu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/dialog_input_content_func"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="忘记密码"
+        android:layout_margin="5dp"
+        android:layout_gravity="right"/>
+    <TextView
+        android:id="@+id/dialog_input_content_bottomspace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

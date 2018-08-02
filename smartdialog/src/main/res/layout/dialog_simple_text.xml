@@ -14,10 +14,11 @@
         android:lines="1"
         android:ellipsize="end"
         />
-    <View
+    <ImageView
         android:id="@+id/lib_dialog_simple_line"
         android:layout_width="match_parent"
-        android:layout_height="1px"/>
+        android:layout_height="1px"
+        />
     <TextView
         android:id="@+id/lib_dialog_simple_txt_sub_title"
         android:layout_width="wrap_content"

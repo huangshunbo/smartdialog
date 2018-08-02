@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class SimpleTextContent extends LinearLayout{
 
     TextView tvTitle;
     TextView tvSubTitle;
-    View mLine;
+    ImageView mLine;
 
     private static int[] DEFAULT_STYLEABLE =  R.styleable.lib_dialog_simpletext_content;
     private static int DEFAULT_STYLE = R.style.lib_dialog_simpletext_content;
@@ -39,10 +40,6 @@ public class SimpleTextContent extends LinearLayout{
         initAttrs();
     }
 
-    public SimpleTextContent(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
     private void initView(){
         inflate(mBuilder.context, R.layout.dialog_simple_text,this);
         tvTitle = findViewById(R.id.lib_dialog_simple_txt_title);
@@ -53,46 +50,46 @@ public class SimpleTextContent extends LinearLayout{
     private void initAttrs() {
         TypedArray typedArray = mBuilder.context.getTheme().obtainStyledAttributes(mBuilder.defaultStyle, DEFAULT_STYLEABLE);
         if(mBuilder.titleTextSize <= 0){
-            mBuilder.titleTextSize = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_title_textsize,0);
+            mBuilder.titleTextSize = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_title_textsize,0);
         }
-        if(mBuilder.titleTextColor <= 0){
-            mBuilder.titleTextColor = typedArray.getColor(R.styleable.lib_dialog_simpletext_content_title_textcolor,0);
+        if(mBuilder.titleTextColor == 0){
+            mBuilder.titleTextColor = typedArray.getColor(R.styleable.lib_dialog_simpletext_content_simpletext_title_textcolor,0);
         }
         if(mBuilder.titleTextMarginTop <= 0){
-            mBuilder.titleTextMarginTop = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_title_margin_top,0);
+            mBuilder.titleTextMarginTop = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_title_margin_top,0);
         }
         if(mBuilder.titleTextMarginBottom <= 0){
-            mBuilder.titleTextMarginBottom = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_title_margin_bottom,0);
+            mBuilder.titleTextMarginBottom = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_title_margin_bottom,0);
         }
         if(mBuilder.titleTextMarginLeft <= 0){
-            mBuilder.titleTextMarginLeft = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_title_margin_left,0);
+            mBuilder.titleTextMarginLeft = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_title_margin_left,0);
         }
         if(mBuilder.titleTextMarginRight <= 0){
-            mBuilder.titleTextMarginRight = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_title_margin_right,0);
+            mBuilder.titleTextMarginRight = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_title_margin_right,0);
         }
         if(mBuilder.messageTextSize <= 0){
-            mBuilder.messageTextSize = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_message_textsize,0);
+            mBuilder.messageTextSize = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_message_textsize,0);
         }
-        if(mBuilder.messageTextColor <= 0){
-            mBuilder.messageTextColor = typedArray.getColor(R.styleable.lib_dialog_simpletext_content_message_textcolor,0);
+        if(mBuilder.messageTextColor == 0){
+            mBuilder.messageTextColor = typedArray.getColor(R.styleable.lib_dialog_simpletext_content_simpletext_message_textcolor,0);
         }
         if(mBuilder.messageTextMarginTop <= 0){
-            mBuilder.messageTextMarginTop = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_message_margin_top,0);
+            mBuilder.messageTextMarginTop = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_message_margin_top,0);
         }
         if(mBuilder.messageTextMarginBottom <= 0){
-            mBuilder.messageTextMarginBottom = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_message_margin_bottom,0);
+            mBuilder.messageTextMarginBottom = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_message_margin_bottom,0);
         }
         if(mBuilder.messageTextMarginLeft <= 0){
-            mBuilder.messageTextMarginLeft = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_message_margin_left,0);
+            mBuilder.messageTextMarginLeft = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_message_margin_left,0);
         }
         if(mBuilder.messageTextMarginRight <= 0){
-            mBuilder.messageTextMarginRight = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_message_margin_right,0);
+            mBuilder.messageTextMarginRight = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_message_margin_right,0);
         }
         if(mBuilder.lineBackground == null){
-            mBuilder.lineBackground = typedArray.getDrawable(R.styleable.lib_dialog_simpletext_content_line_background);
+            mBuilder.lineBackground = typedArray.getDrawable(R.styleable.lib_dialog_simpletext_content_simpletext_line_background);
         }
         if(mBuilder.lineMargin <= 0){
-            mBuilder.lineMargin = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_line_margin,0);
+            mBuilder.lineMargin = (int) typedArray.getDimension(R.styleable.lib_dialog_simpletext_content_simpletext_line_margin,0);
         }
         typedArray.recycle();
 
@@ -114,19 +111,24 @@ public class SimpleTextContent extends LinearLayout{
         if(mBuilder.titleTextSize > 0){
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,mBuilder.titleTextSize);
         }
-        if(mBuilder.titleTextColor >= 0){
+        if(mBuilder.titleTextColor > 0){
             tvTitle.setTextColor(ContextCompat.getColor(getContext(),mBuilder.titleTextColor));
+        }else if(mBuilder.titleTextColor < 0){
+            tvTitle.setTextColor(mBuilder.titleTextColor);
         }
         tvTitle.setPadding(mBuilder.titleTextMarginLeft>0 ? mBuilder.titleTextMarginLeft : 0,mBuilder.messageTextMarginTop>0 ? mBuilder.messageTextMarginTop : 0,mBuilder.messageTextMarginRight>0 ? mBuilder.messageTextMarginRight : 0,mBuilder.messageTextMarginBottom>0 ? mBuilder.messageTextMarginBottom : 0);
         if(mBuilder.messageTextSize > 0){
             tvSubTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX,mBuilder.messageTextSize);
         }
-        if(mBuilder.messageTextColor >= 0){
+        if(mBuilder.messageTextColor > 0){
             tvSubTitle.setTextColor(ContextCompat.getColor(getContext(),mBuilder.messageTextColor));
+        }else if(mBuilder.messageTextColor < 0){
+            tvSubTitle.setTextColor(mBuilder.messageTextColor);
         }
         tvSubTitle.setPadding(mBuilder.messageTextMarginLeft>0 ? mBuilder.messageTextMarginLeft : 0,mBuilder.messageTextMarginTop>0 ? mBuilder.messageTextMarginTop : 0,mBuilder.messageTextMarginRight>0 ? mBuilder.messageTextMarginRight : 0,mBuilder.messageTextMarginBottom>0 ? mBuilder.messageTextMarginBottom : 0);
         if(mBuilder.lineBackground != null){
             mLine.setBackground(mBuilder.lineBackground);
+            mLine.setImageDrawable(mBuilder.lineBackground);
         }
         if(mBuilder.lineMargin > 0){
             LinearLayout.LayoutParams lp = (LayoutParams) mLine.getLayoutParams();
@@ -136,6 +138,17 @@ public class SimpleTextContent extends LinearLayout{
 
     }
 
+    public TextView getTitle() {
+        return tvTitle;
+    }
+
+    public TextView getSubTitle() {
+        return tvSubTitle;
+    }
+
+    public ImageView getLine() {
+        return mLine;
+    }
 
     public static final class Builder {
         private int defaultStyle;

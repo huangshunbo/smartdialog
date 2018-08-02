@@ -38,10 +38,10 @@ public class HorizontalProgressBar extends ProgressBarStyle {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        initBitmap();
         if (backBitmap == null || foreBitmap == null) {
             return;
         }
-        initBitmap();
         canvas.drawColor(Color.TRANSPARENT);
         canvas.drawBitmap(backBitmap, paddingLeft, paddingTop, mPaint);
         double rate;

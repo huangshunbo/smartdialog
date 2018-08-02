@@ -32,21 +32,58 @@
     </style>
 
     <style name="lib_dialog_simpletext_content">
-        <item name="title_textsize">22dp</item>
-        <item name="title_textcolor">@color/color_black</item>
-        <item name="title_margin_top">10dp</item>
-        <item name="title_margin_bottom">10dp</item>
-        <item name="title_margin_left">10dp</item>
-        <item name="title_margin_right">10dp</item>
+        <item name="simpletext_title_textsize">22dp</item>
+        <item name="simpletext_title_textcolor">@color/color_black</item>
+        <item name="simpletext_title_margin_top">10dp</item>
+        <item name="simpletext_title_margin_bottom">10dp</item>
+        <item name="simpletext_title_margin_left">10dp</item>
+        <item name="simpletext_title_margin_right">10dp</item>
 
-        <item name="message_textsize">22dp</item>
-        <item name="message_textcolor">@color/color_black</item>
-        <item name="message_margin_top">10dp</item>
-        <item name="message_margin_bottom">10dp</item>
-        <item name="message_margin_left">10dp</item>
-        <item name="message_margin_right">10dp</item>
+        <item name="simpletext_message_textsize">22dp</item>
+        <item name="simpletext_message_textcolor">@color/color_black</item>
+        <item name="simpletext_message_margin_top">10dp</item>
+        <item name="simpletext_message_margin_bottom">10dp</item>
+        <item name="simpletext_message_margin_left">10dp</item>
+        <item name="simpletext_message_margin_right">10dp</item>
 
-        <item name="line_background">@drawable/lib_dialog_simpletext_line</item>
-        <item name="line_margin">10dp</item>
+        <item name="simpletext_line_background">@drawable/lib_dialog_simpletext_line</item>
+        <item name="simpletext_line_margin">10dp</item>
+    </style>
+
+    <style name="lib_dialog_input_content">
+        <item name="input_title_textsize">22dp</item>
+        <item name="input_title_textcolor">@color/color_black</item>
+        <item name="input_title_margin_top">10dp</item>
+        <item name="input_title_margin_bottom">10dp</item>
+        <item name="input_title_margin_left">10dp</item>
+        <item name="input_title_margin_right">10dp</item>
+
+        <item name="input_message_textsize">22dp</item>
+        <item name="input_message_textcolor">@color/color_black</item>
+        <item name="input_message_margin_top">10dp</item>
+        <item name="input_message_margin_bottom">10dp</item>
+        <item name="input_message_margin_left">10dp</item>
+        <item name="input_message_margin_right">10dp</item>
+
+        <item name="input_sub_message_textsize">40dp</item>
+        <item name="input_sub_message_textcolor">@color/color_black</item>
+        <item name="input_sub_message_margin_top">10dp</item>
+        <item name="input_sub_message_margin_bottom">10dp</item>
+        <item name="input_sub_message_margin_left">10dp</item>
+        <item name="input_sub_message_margin_right">10dp</item>
+
+        <item name="input_line_background">@drawable/lib_dialog_simpletext_line</item>
+        <item name="input_line_margin">10dp</item>
+
+        <item name="input_input_background">@null</item>
+        <item name="input_input_margin">10dp</item>
+
+        <item name="input_status_open">@null</item>
+        <item name="input_status_close">@null</item>
+
+        <item name="input_func_text">忘记密码</item>
+        <item name="input_func_text_color">@color/color_gray</item>
+
+        <item name="input_bottom_space">30dp</item>
     </style>
 </resources>

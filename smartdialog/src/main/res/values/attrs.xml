@@ -14,22 +14,61 @@
     </declare-styleable>
 
     <declare-styleable name="lib_dialog_simpletext_content">
-        <attr name="title_textsize" format="dimension"/>
-        <attr name="title_textcolor" format="color"/>
-        <attr name="title_margin_top" format="dimension"/>
-        <attr name="title_margin_bottom" format="dimension"/>
-        <attr name="title_margin_left" format="dimension"/>
-        <attr name="title_margin_right" format="dimension"/>
+        <attr name="simpletext_title_textsize" format="dimension"/>
+        <attr name="simpletext_title_textcolor" format="color"/>
+        <attr name="simpletext_title_margin_top" format="dimension"/>
+        <attr name="simpletext_title_margin_bottom" format="dimension"/>
+        <attr name="simpletext_title_margin_left" format="dimension"/>
+        <attr name="simpletext_title_margin_right" format="dimension"/>
 
-        <attr name="message_textsize" format="dimension"/>
-        <attr name="message_textcolor" format="color"/>
-        <attr name="message_margin_top" format="dimension"/>
-        <attr name="message_margin_bottom" format="dimension"/>
-        <attr name="message_margin_left" format="dimension"/>
-        <attr name="message_margin_right" format="dimension"/>
+        <attr name="simpletext_message_textsize" format="dimension"/>
+        <attr name="simpletext_message_textcolor" format="color"/>
+        <attr name="simpletext_message_margin_top" format="dimension"/>
+        <attr name="simpletext_message_margin_bottom" format="dimension"/>
+        <attr name="simpletext_message_margin_left" format="dimension"/>
+        <attr name="simpletext_message_margin_right" format="dimension"/>
 
-        <attr name="line_background" format="reference"/>
-        <attr name="line_margin" format="dimension"/>
+        <attr name="simpletext_line_background" format="reference"/>
+        <attr name="simpletext_line_margin" format="dimension"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="lib_dialog_input_content">
+
+        <attr name="input_title_textcolor" format="color"/>
+        <attr name="input_title_textsize" format="dimension"/>
+        <attr name="input_title_margin_top" format="dimension"/>
+        <attr name="input_title_margin_bottom" format="dimension"/>
+        <attr name="input_title_margin_left" format="dimension"/>
+        <attr name="input_title_margin_right" format="dimension"/>
+
+        <attr name="input_message_textsize" format="dimension"/>
+        <attr name="input_message_textcolor" format="color"/>
+        <attr name="input_message_margin_top" format="dimension"/>
+        <attr name="input_message_margin_bottom" format="dimension"/>
+        <attr name="input_message_margin_left" format="dimension"/>
+        <attr name="input_message_margin_right" format="dimension"/>
+
+        <attr name="input_sub_message_textsize" format="dimension"/>
+        <attr name="input_sub_message_textcolor" format="color"/>
+        <attr name="input_sub_message_margin_top" format="dimension"/>
+        <attr name="input_sub_message_margin_bottom" format="dimension"/>
+        <attr name="input_sub_message_margin_left" format="dimension"/>
+        <attr name="input_sub_message_margin_right" format="dimension"/>
+
+        <attr name="input_line_background" format="reference"/>
+        <attr name="input_line_margin" format="dimension"/>
+
+        <attr name="input_input_background" format="reference"/>
+        <attr name="input_input_margin" format="dimension"/>
+
+        <attr name="input_status_open" format="reference"/>
+        <attr name="input_status_close" format="reference"/>
+
+        <attr name="input_func_text" format="string"/>
+        <attr name="input_func_text_color" format="color"/>
+
+        <attr name="input_bottom_space" format="dimension"/>
 
     </declare-styleable>
 </resources>

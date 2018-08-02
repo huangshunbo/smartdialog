@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StyleRes;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,12 @@ public class SmartDialog<T extends View> extends EmptyDialog {
         mBuilder = builder;
         initView();
     }
+
+    private void setBuilder(Builder builder){
+        mBuilder = builder;
+        initView();
+    }
+
 
     @Override
     public void show() {
@@ -114,8 +121,10 @@ public class SmartDialog<T extends View> extends EmptyDialog {
     private void setTextViewProperty(final TextView textView, final boolean isButtonAutoDismiss, String buttonText, @ColorRes int buttonTextColor, Drawable buttonBackground, final View.OnClickListener clickListener){
         textView.setVisibility(View.VISIBLE);
         textView.setText(buttonText);
-        if(buttonTextColor > 0){
+        if(buttonTextColor < 0){
             textView.setTextColor(buttonTextColor);
+        }else if(buttonTextColor > 0){
+            textView.setTextColor(ContextCompat.getColor(mBuilder.mContext,buttonTextColor));
         }
         if(buttonBackground != null){
             textView.setBackground(buttonBackground);
@@ -260,8 +269,19 @@ public class SmartDialog<T extends View> extends EmptyDialog {
         }
 
         public SmartDialog build() {
-            return new SmartDialog<E>(this);
+            if(smartDialog == null){
+                smartDialog = new SmartDialog<E>(this);
+            }else {
+                smartDialog.setBuilder(this);
+                if(smartDialog.isShowing()){
+                    smartDialog.dismiss();
+                }
+            }
+
+            return smartDialog;
         }
 
     }
+
+    private static SmartDialog smartDialog;
 }
