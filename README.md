@@ -301,15 +301,19 @@ public class SmartDialogFactory {
 ```
 
 
-##### Feature
+#### Feature
+---
 1. 将主体View和Dialog结合，可完全使用一个链式调用完成Dialog的创建
 2. 加入更多的统一模板
 3. 新模板使用kotlin
 
-##### Sample
-##### Known Issues
+#### Sample
+---
+#### Known Issues
+---
 暂时没有收到任何反馈，有任何疑问或需求，可提issue。
-##### Support
+#### Support
+---
 黄顺波
 
 
