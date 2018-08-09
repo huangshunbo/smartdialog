@@ -16,7 +16,7 @@ import android.widget.Toast;
  */
 public class EmptyDialog extends Dialog {
 
-    private static float WIDTH_SCALE = 0.8f;
+    private float WIDTH_SCALE = 0.8f;
     private Context mContext;
     int width = 0;
 
@@ -47,7 +47,6 @@ public class EmptyDialog extends Dialog {
         super.show();
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.width = (int)(width * WIDTH_SCALE); //设置宽度
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(lp);
     }
 

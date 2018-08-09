@@ -12,6 +12,9 @@
 进度条功能说明：
 提供纯色的水平进度条和圆形进度条，进度条可包含两种进度。
 
+Loading刷新
+建议用svg转换成vector 配合 animator 制作刷新动画,默认有制作了一个 可以参考
+
 #### Getting Started
 ---
 导入库
@@ -300,6 +303,56 @@ public class SmartDialogFactory {
 }
 ```
 
+##### 吐司
+```Java
+ToastUtils.showTopToast(this,"Hello");
+ToastUtils.showCenterToast(this,"Hello");
+ToastUtils.showBottomToast(this,"Hello");
+```
+
+##### 进度条
+```Java
+<com.android.minlib.progressbar.SmartProgressBar
+        android:id="@+id/view_progress_dialog_progress"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="100dp"
+        app:style="circle"
+        app:background="@drawable/progressbar_secondforeground"
+        app:foreground="@drawable/progressbar_foreground"
+        app:second_foreground="@drawable/progressbar_secondforeground"
+        android:layout_centerInParent="true"
+        app:circle_startangle="90"
+        app:circle_width="5dp"/>
+```
+
+通过setProgress来设置第一进度和第二进度
+
+
+##### Loading
+全局style配置
+```Java
+<style name="lib_dialog_loading_theme" parent="lib_empty_dialog_theme">
+        <item name="lib_dialog_loading_icon">@drawable/anim_loading</item>
+        <item name="lib_dialog_loading_message_text">加载中...</item>
+        <item name="lib_dialog_loading_message_size">22dp</item>
+        <item name="lib_dialog_loading_message_color">@color/color_black</item>
+        <item name="lib_dialog_loading_content_orientation">vertical</item>
+        <item name="lib_dialog_loading_content_background">@drawable/common_frame_corner_white</item>
+        <item name="lib_dialog_loading_content_margin">20dp</item>
+        <item name="lib_dialog_loading_message_margin_top">10dp</item>
+    </style>
+```
+
+
+```Java
+LoadingDialog loadingDialog = new LoadingDialog(this);
+                if(loadingDialog.isShowing()){
+                    loadingDialog.dissLoading();
+                }else{
+                    loadingDialog.showLoading();
+                }
+```
 
 #### Feature
 ---
