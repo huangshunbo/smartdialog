@@ -37,10 +37,6 @@ public class SmartDialog<T extends View> extends EmptyDialog {
 
     private static int default_style = R.style.lib_common_dialog_theme;
 
-    private SmartDialog(Context context) {
-        super(context);
-    }
-
     private SmartDialog(Builder builder) {
         super(builder.mContext,builder.mDialogTheme);
         mBuilder = builder;

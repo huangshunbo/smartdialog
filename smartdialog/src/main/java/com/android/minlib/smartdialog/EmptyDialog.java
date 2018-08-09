@@ -18,15 +18,17 @@ public class EmptyDialog extends Dialog {
 
     private static float WIDTH_SCALE = 0.8f;
     private Context mContext;
+    int width = 0;
 
     public EmptyDialog(Context context){
-        super(context,R.style.lib_empty_dialog_theme);
-        mContext = context;
+        this(context,R.style.lib_empty_dialog_theme);
     }
 
     public EmptyDialog(Context context,int theme){
         super(context,theme);
         mContext = context;
+        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        width = wm.getDefaultDisplay().getWidth();
     }
 
     public void setForceOpen(boolean isForceOpen){
@@ -43,10 +45,9 @@ public class EmptyDialog extends Dialog {
     @Override
     public void show() {
         super.show();
-        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth();
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.width = (int)(width * WIDTH_SCALE); //设置宽度
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(lp);
     }
 

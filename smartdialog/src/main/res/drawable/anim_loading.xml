@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="NewApi"
+    android:drawable="@drawable/vector_loading">
+
+    <target
+        android:animation="@animator/rotation"
+        android:name="rotation"/>
+</animated-vector>

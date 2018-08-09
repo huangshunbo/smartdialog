@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.minlib.smartdialog.EmptyDialog;
+import com.android.minlib.smartdialog.LoadingDialog;
 import com.android.minlib.smartdialog.SmartDialog;
 import com.android.minlib.smartdialog.ToastUtils;
 
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView mListView;
     private static final String[] strs =
             {
-                    "showEmptyDialog","showSimpleDialog","showThemeDialog","InputDialog","SimpleInputDialog","Toast","ProgressBar"
+                    "showEmptyDialog","showSimpleDialog","showThemeDialog","InputDialog","SimpleInputDialog","Toast","ProgressBar","Loading Show Or Dismiss"
 
             };
     @Override
@@ -68,6 +69,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 EmptyDialog dialog = SmartDialogFactory.createProgressDialog(this);
 
 //                startActivity(new Intent(this,ProgressBarActivity.class));
+                break;
+            case 7:
+                LoadingDialog loadingDialog = new LoadingDialog(this);
+                if(loadingDialog.isShowing()){
+                    loadingDialog.dissLoading();
+                }else{
+                    loadingDialog.showLoading();
+                }
                 break;
 
         }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="lib_dialog_loading_theme">
+        <attr name="lib_dialog_loading_icon" format="reference" />
+        <attr name="lib_dialog_loading_message_text" format="string" />
+        <attr name="lib_dialog_loading_message_size" format="dimension" />
+        <attr name="lib_dialog_loading_message_color" format="color" />
+        <attr name="lib_dialog_loading_message_margin_top" format="dimension"/>
+        <attr name="lib_dialog_loading_content_orientation">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="0" />
+        </attr>
+        <attr name="lib_dialog_loading_content_background" format="color|reference"/>
+        <attr name="lib_dialog_loading_content_margin" format="dimension"/>
+
+    </declare-styleable>
+</resources>

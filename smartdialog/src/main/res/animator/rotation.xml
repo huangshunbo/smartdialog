@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:propertyName="rotation"
+    android:valueFrom="0"
+    android:valueTo="360"
+    android:propertyXName="0.5"
+    android:propertyYName="0.5"
+    android:valueType="floatType"
+    android:interpolator="@android:interpolator/accelerate_decelerate"
+    android:repeatMode="restart"
+    android:repeatCount="infinite"
+    >
+
+</objectAnimator>

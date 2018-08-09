@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_loading_content"
+    android:orientation="?attr/lib_dialog_loading_content_orientation"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_horizontal"
+    android:background="?attr/lib_dialog_loading_content_background"
+    android:padding="?attr/lib_dialog_loading_content_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <ImageView
+        android:id="@+id/dialog_loading_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/ic_launcher_round"
+        android:src="@drawable/anim_loading"
+        />
+    <TextView
+        android:id="@+id/dialog_loading_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="加载中..."
+        android:textSize="?attr/lib_dialog_loading_message_size"
+        android:textColor="?attr/lib_dialog_loading_message_color"
+        android:text="?attr/lib_dialog_loading_message_text"
+        android:layout_marginTop="?attr/lib_dialog_loading_message_margin_top"/>
+</LinearLayout>

@@ -86,4 +86,16 @@
 
         <item name="input_bottom_space">30dp</item>
     </style>
+
+
+    <style name="lib_dialog_loading_theme" parent="lib_empty_dialog_theme">
+        <item name="lib_dialog_loading_icon">@drawable/anim_loading</item>
+        <item name="lib_dialog_loading_message_text">加载中...</item>
+        <item name="lib_dialog_loading_message_size">22dp</item>
+        <item name="lib_dialog_loading_message_color">@color/color_black</item>
+        <item name="lib_dialog_loading_content_orientation">vertical</item>
+        <item name="lib_dialog_loading_content_background">@drawable/common_frame_corner_white</item>
+        <item name="lib_dialog_loading_content_margin">20dp</item>
+        <item name="lib_dialog_loading_message_margin_top">10dp</item>
+    </style>
 </resources>
