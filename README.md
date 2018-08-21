@@ -344,7 +344,7 @@ ToastUtils.showBottomToast(this,"Hello");
         <item name="lib_dialog_loading_message_margin_left">10dp</item>
     </style>
 ```
-ProgressHUD暴露的方法
+LoadingDialog暴露的方法
 ```Java
 LoadingDialog.showLoading(Context context, boolean isForceOpen, String message, Drawable iconDrawable, int theme)
 LoadingDialog.showLoading(Context context, String message)
