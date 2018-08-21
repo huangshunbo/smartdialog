@@ -265,7 +265,7 @@ public class SmartDialog<T extends View> extends EmptyDialog {
         }
 
         public SmartDialog build() {
-            if(smartDialog == null){
+            if(smartDialog == null || !smartDialog.getContext().equals(mContext)){
                 smartDialog = new SmartDialog<E>(this);
             }else {
                 smartDialog.setBuilder(this);

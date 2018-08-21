@@ -341,17 +341,17 @@ ToastUtils.showBottomToast(this,"Hello");
         <item name="lib_dialog_loading_content_background">@drawable/common_frame_corner_white</item>
         <item name="lib_dialog_loading_content_margin">20dp</item>
         <item name="lib_dialog_loading_message_margin_top">10dp</item>
+        <item name="lib_dialog_loading_message_margin_left">10dp</item>
     </style>
 ```
-
-
+ProgressHUD暴露的方法
 ```Java
-LoadingDialog loadingDialog = new LoadingDialog(this);
-                if(loadingDialog.isShowing()){
-                    loadingDialog.dissLoading();
-                }else{
-                    loadingDialog.showLoading();
-                }
+LoadingDialog.showLoading(Context context, boolean isForceOpen, String message, Drawable iconDrawable, int theme)
+LoadingDialog.showLoading(Context context, String message)
+LoadingDialog.showLoading(Context context, boolean isForceOpen, String message)
+LoadingDialog.showLoading(Context context, String message, Drawable iconDrawable)
+LoadingDialog.showLoading(Context context, boolean isForceOpen, String message, Drawable iconDrawable)
+LoadingDialog.dissmiss()
 ```
 
 #### Feature

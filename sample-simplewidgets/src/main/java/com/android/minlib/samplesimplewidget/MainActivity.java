@@ -71,12 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //                startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
             case 7:
-                LoadingDialog loadingDialog = new LoadingDialog(this);
-                if(loadingDialog.isShowing()){
-                    loadingDialog.dissLoading();
-                }else{
-                    loadingDialog.showLoading();
-                }
+                LoadingDialog.showLoading(this,false,"lalalala");
                 break;
 
         }
